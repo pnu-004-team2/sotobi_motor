@@ -20,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 public class PW_Check extends AppCompatActivity {
+    public static String BNum;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,8 @@ public class PW_Check extends AppCompatActivity {
         final EditText PW = (EditText) findViewById(R.id.PW);
 
         Intent number= getIntent();
-        final String Number = number.getStringExtra("number");
-        Toast.makeText(getApplicationContext(), " Number : " + Number, Toast.LENGTH_SHORT).show();
+        BNum = number.getStringExtra("number");
+        Toast.makeText(getApplicationContext(), " Number : " + BNum, Toast.LENGTH_SHORT).show();
 
         /*
         ImageView start = (ImageView)findViewById(R.id.start_Btn);
@@ -69,7 +70,7 @@ public class PW_Check extends AppCompatActivity {
                             }
                         }
                     };
-                    PW_check_Request pwcheckrequest = new PW_check_Request(Number, pw, responseListener);
+                    PW_check_Request pwcheckrequest = new PW_check_Request(BNum, pw, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(PW_Check.this);
                     queue.add(pwcheckrequest);
                     }
